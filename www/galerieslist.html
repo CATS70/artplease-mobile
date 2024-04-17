@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Art places list</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.2.min.css" />-->
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.artplease.theme-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.structure-1.4.0.min.css" />
+	<link rel='stylesheet' id='camera-css'  href='css/camera_with_no_loader.css' type='text/css' media='all'> <!--j'ai changé la css pour supprimer le loader à l'ouverture-->
+	<link rel="stylesheet" href="css/artplease.css" />
+
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/geo-min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="js/mobile-utils-1.0.js"></script> <!--Because I use the mobileinit event, I need to bind the event handler before jQuery Mobile is loaded. -->
+	<!--<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+	<script type='text/javascript' src='js/camera.min.mod.js'></script>	
+	<script type="text/javascript" src="js/moment-with-langs.min.js"></script>
+<body>
+
+
+<div data-role="page" id="PageArtPlaceList" data-dom-cache="true" data-theme= "c">
+
+	<div id="headerpage" data-role="header" data-position="fixed" style="overflow:hidden;" data-theme= "a">
+		<div class="ui-grid-solo" id="headerline">
+			<div class="ui-block-a" align="center"><img id="headerimg" src="img/logo.png" class="responsiveimg"></div>
+		</div>
+		<a href="#helppanelPageArtPlaceList" data-icon="info" data-iconpos="notext">help</a>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="settings.html"  data-icon="gear" data-transition="flip">Settings</a></li>
+				<li><a href="galeriessearch.html"  data-icon="search" data-transition="flip">Search</a></li>
+				<li><a href="galerieslist.html"  data-icon="bars" class="ui-btn-active ui-state-persist" data-transition="flip">Art nearby</a></li>
+				<li><a href="eventlist.html"  data-icon="star" data-transition="flip">Events</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme= "c">
+		<img id="googleimg" src="img/powered-by-google-on-white.png" class="responsiveimgnoborder">
+		<a href="#" data-role="button" onclick="searchartplacesbylocation();" style="visibility:hidden" id="clearandsearch">clear list and search again</a>
+		<ul data-role="listview" data-split-icon="info" data-split-theme="d" data-inset="true" id="artplacelist">
+		</ul>		
+
+		
+	</div><!-- /content -->
+
+    <div data-role="panel" data-position="left" data-position-fixed="true" data-display="overlay" id="helppanelPageArtPlaceList">
+		<div id="helptext">
+		<br>
+			<p class="helptext">
+				Here the app has searched the nearby art places  based on your location.
+				<br><br>Records with blue header are galleries: <br>
+				<img src="img/help/blueheader.png" class="responsiveimg">
+				Records with yellow header are artists:<br>
+				<img src="img/help/yellowheader.png" class="responsiveimg"> <br><br>
+				tap the "info" button <img src="img/help/infobuttongrey.png" class="responsiveimg"> to see details.
+				
+			</p>
+			
+		</div>
+		
+    </div><!-- /panel -->	
+</div><!-- /page -->
+</body>
+</html>

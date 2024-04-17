@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Art-Place Nearby</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.2.min.css" />-->
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.artplease.theme-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.structure-1.4.0.min.css" />
+	<link rel='stylesheet' id='camera-css'  href='css/camera_with_no_loader.css' type='text/css' media='all'> <!--j'ai changé la css pour supprimer le loader à l'ouverture-->
+	<link rel="stylesheet" href="css/artplease.css" />
+
+	<script type="text/javascript" charset="utf-8">
+
+		// Wait for PhoneGap to load
+		//
+		var isPhoneGap = (document.location.protocol == "file:");
+		
+		if (isPhoneGap == true)
+		{
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			// PhoneGap is ready
+			//
+			function onDeviceReady() {
+				
+				sessionStorage.deviceuuid=device.uuid;
+				sessionStorage.platform=device.platform;
+				var networkState = navigator.connection.type;
+				
+				if (networkState==Connection.NONE)
+				{
+					alert('No network connection. Art-Please Nearby is to exit');
+					navigator.app.exitApp();
+				}
+			}
+		}
+
+	</script>
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="js/geo-min.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/mobile-utils-1.0.js"></script> <!--Because I use the mobileinit event, I need to bind the event handler before jQuery Mobile is loaded. -->
+	<!--<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+	<script type='text/javascript' src='js/camera.min.mod.js'></script>
+	<script type="text/javascript" src="js/moment-with-langs.min.js"></script>
+
+
+</head>
+<body>
+
+	
+<div data-role="page" id="PageIndex" data-dom-cache="true" data-theme= "c">
+
+	<div id="headerpage" data-role="header" data-position="fixed" style="overflow:hidden;"  data-theme= "a">
+
+		<div class="ui-grid-solo" id="headerline">
+			<div class="ui-block-a" align="center"><img id="headerimg" src="img/logo.png" class="responsiveimg"></div>
+
+		</div>
+		<a href="#helppanelPageIndex" data-icon="info" data-iconpos="notext">help</a>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="settings.html" data-icon="gear" >Settings</a></li>
+				<li><a href="galeriessearch.html" data-dom-cache="true" data-icon="search" data-transition="flip">Search</a></li>
+				<li><a href="galerieslist.html"  data-icon="bars" data-transition="flip">Art nearby</a></li>
+				<li><a href="eventlist.html"  data-ajax="false" data-icon="star"  data-transition="flip">Events</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+	</div><!-- /header -->
+
+	<div data-role="content"   data-theme= "c">
+
+		<div style="text-align:center;margin:0 auto;">
+			<a href="index.html" data-transition="none" ><img  class="responsiveimg" src="img/art-please-ipad-retina-016.jpg"></a>
+		<div>
+		
+	</div><!-- /content -->
+	
+    <div data-role="panel" data-position="left" data-position-fixed="true" data-display="overlay" id="helppanelPageIndex"   data-theme= "c">
+		<div id="helptext">
+		<br>
+			<p class="helptext">
+				You can access to features as described below
+				<table class="helptext">
+					<tr>
+						<td>
+							<img src="img/help/buttonsettings.png" class="responsiveimg">
+						</td>
+						<td>
+							<p>Access to reload your latitude and longitude and modify the radius of search</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="img/help/buttonsearch.png" class="responsiveimg">
+						</td>
+						<td>
+							<p>Search art places in a city</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="img/help/buttonnearby.png" class="responsiveimg">
+						</td>
+						<td>
+							<p>Search nearby art places </p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="img/help/buttonevents.png" class="responsiveimg">
+						</td>
+						<td>
+							<p>Search nearby art events  or in a city</p>
+						</td>
+					</tr>
+				</table>
+				
+			</p>
+			
+		</div>
+		
+    </div><!-- /panel -->	
+</div><!-- /page -->
+</body>
+</html>

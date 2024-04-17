@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events list</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.2.min.css" />-->
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.artplease.theme-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.structure-1.4.0.min.css" />
+	<link rel='stylesheet' id='camera-css'  href='css/camera_with_no_loader.css' type='text/css' media='all'> <!--j'ai changé la css pour supprimer le loader à l'ouverture-->
+	<link rel="stylesheet" href="css/artplease.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/geo-min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="js/mobile-utils-1.0.js"></script> <!--Because I use the mobileinit event, I need to bind the event handler before jQuery Mobile is loaded. -->
+	<!--<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+	<script type='text/javascript' src='js/camera.min.mod.js'></script>	
+	<script type="text/javascript" src="js/moment-with-langs.min.js"></script>
+<body>
+
+
+<div data-role="page" id="PageEventList" data-dom-cache="true" data-theme= "c">
+
+	<div id="headerpage" data-role="header" data-position="fixed" style="overflow:hidden;" data-theme= "a">
+		<div class="ui-grid-solo" id="headerline">
+			<div class="ui-block-a" align="center"><img id="headerimg" src="img/logo.png"  class="responsiveimg"></div>
+		</div>
+		<a href="#helppanelPageEventList" data-icon="info" data-iconpos="notext">help</a>
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="settings.html"  data-icon="gear" data-transition="flip">Settings</a></li>
+				<li><a href="galeriessearch.html"  data-icon="search" data-transition="flip">Search</a></li>
+				<li><a href="galerieslist.html"  data-icon="bars" data-transition="flip">Art nearby</a></li>
+				<li><a href="eventlist.html"  data-icon="star" class="ui-btn-active ui-state-persist" data-transition="flip">Events</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme= "c">
+
+		<a href="eventsearch.html" data-role="button"  id="searchmoreevents" data-transition="flip">Search more events</a>
+		<p>Your event is not in the list? Contact us <a href="mailto:contact@art-please.com">contact@art-please.com</a> </p>
+		<ul data-role="listview" data-split-icon="info" data-inset="true" id="eventlist">
+		</ul>				
+	</div><!-- /content -->
+    <div data-role="panel" data-position="left" data-position-fixed="true" data-display="overlay" id="helppanelPageEventList">
+		<div id="helptext">
+		<br>
+			<p class="helptext">
+				Here the app has searched the forthcoming art events based on your location.
+				<br><br>Tap "info" button <img src="img/help/infobuttonblue.png" class="responsiveimg"> to access the exhibitors list (if registered in the Art-Please DB)<br>
+				
+				You can also perform a search in a city by taping the "Search more events" button <img src="img/help/searchmoreevents.png" class="responsiveimg"><br>
+
+			</p>
+			
+		</div>
+		
+    </div><!-- /panel -->	
+
+
+</div><!-- /page -->
+</body>
+</html>

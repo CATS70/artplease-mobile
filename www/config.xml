@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="fr.artplease.artnearby.dev" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>APN Dev</name>
+    <description>
+        Find art places nearby
+    </description>
+	
+    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
+    <access origin="http://192.168.0.16:9091"/> <!-- allow local pages -->
+
+    <!-- <access origin="https://example.com" /> allow any secure requests to example.com -->
+    <!-- <access origin="https://example.com" subdomains="true" /> such as above, but including subdomains, such as www -->
+    <access origin=".*"/>
+	<access origin="https://googleapis.com" subdomains="true"/>
+	<access origin="http://www.google-analytics.com" subdomains="true"/>
+	<access origin="https://maps.googleapis.com"/>
+	<access origin="https://maps.gstatic.com"/>	
+	<access origin="https://csi.gstatic.com"/>	
+	<access origin="http://api.dev.art-please.org"/>
+	
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
+    </feature>
+    <author email="contact@art-please.org" href="http://www.art-please.org">
+       Art-Please Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+	<preference name="splashscreen" value="splash" />
+	<preference name="splashScreenDelay" value="10000" />
+
+	
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+	
+	<feature name="SplashScreen">
+		<param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+	</feature>
+
+	<feature name="InAppBrowser">
+		<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+	</feature>
+
+</widget>

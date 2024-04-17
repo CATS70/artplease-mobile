@@ -1,0 +1,22 @@
+.helptext {
+ font-family: sans-serif, arial, verdana ;
+ font-size:100%;
+ text-align: justify;
+ }
+ .responsiveimg{
+ max-width: 100%; 
+ width: auto;
+ height: auto;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+ border:1px solid black;
+}
+ .responsiveimgnoborder{
+ max-width: 100%; 
+ width: auto;
+ height: auto;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}

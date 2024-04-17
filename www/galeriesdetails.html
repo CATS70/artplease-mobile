@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Art Place details</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.2.min.css" />-->
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.artplease.theme-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile.structure-1.4.0.min.css" />
+	<link rel='stylesheet' id='camera-css'  href='css/camera_with_no_loader.css' type='text/css' media='all'> <!--j'ai changÃ© la css pour supprimer le loader à l'ouverture-->
+	<link rel="stylesheet" href="css/artplease.css" />
+
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="js/geo-min.js"></script>
+	<script type="text/javascript" src="js/mobile-utils-1.0.js"></script> <!--Because I use the mobileinit event, I need to bind the event handler before jQuery Mobile is loaded. -->
+	<!--<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+	<script type='text/javascript' src='js/camera.min.mod.js'></script>	
+	<script type="text/javascript" src="js/moment-with-langs.min.js"></script>
+	<script>
+
+	</script>
+</head>
+<body>
+
+
+<div data-role="page" id="artPlaceDetails" data-dom-cache="true" data-theme= "c">
+
+	<div id="headerpage" data-role="header" data-position="fixed" style="overflow:hidden;" data-theme= "a">
+		<div class="ui-grid-solo" id="headerline">
+			<div class="ui-block-a" align="center"><img id="headerimg" src="img/logo.png"  class="responsiveimg"></div>
+		</div>
+		
+		<a href="#helppanelartPlaceDetails" data-icon="info" data-iconpos="notext">help</a>
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="settings.html"  data-icon="gear" data-transition="flip">Settings</a></li>
+				<li><a href="galeriessearch.html" data-icon="search" data-transition="flip">Search</a></li>
+				<li><a href="galerieslist.html"  data-icon="bars" class="ui-btn-active ui-state-persist" data-transition="flip">Art nearby</a></li>
+				<li><a href="eventlist.html"  data-icon="star" data-transition="flip">Events</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+	</div><!-- /header -->
+
+
+	
+	<div data-role="content" data-theme= "c">
+
+		<div data-role="navbar" data-iconpos="left">
+			<ul>
+				<li><a href="#" data-role="button" data-rel="back" data-icon="back" >Back to list</a></li>
+				<li><a href="#" onclick="sendmsg()" data-role="button" data-icon="alert" >share</a></li>
+			</ul>
+		</div><!-- /navbar -->		
+		<!--<div id="back_to_list">
+			 <a href="#" data-role="button" data-rel="back" data-icon="back">Back to list</a>
+		</div> #back_to_list -->
+		
+		<div style="font-weight: bold;font-size: larger;text-align: center;" id="artPlaceName">Nom Galerie</div>
+
+		<div class="ui-block-a" id="artPlaceTel"  style="text-align:center;font-size: small;">&#9742; No tel. # avail. </div>
+		<div class="ui-block-b" id="artPlaceUrl"  style="text-align:center;font-size: small;">&#9729; No url avail.</div>
+
+
+		<br>
+						<div data-role="navbar" data-iconpos="left">
+					<ul>
+						<li><a href="galeriesdirections.html" data-icon="navigation" id="diridup" data-transition="slideup">Directions</a></li>
+						<li><a href="galeriesslideshow.html"  data-icon="camera" id="ssidup" data-transition="slideup">Slideshow</a></li>
+					</ul>
+				</div><!-- /navbar -->	
+		<div class="ui-grid-solo" id="headerline">
+			<div class="ui-block-a">
+	
+				<br>
+
+				<div>
+					<img src="img/logoico.png" id="imgGal1" style="float:right;max-width: 100%; width: auto;height: auto;-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;box-sizing: border-box"/>
+					<div id="descArtPlace">
+					</div>
+					<img src="img/logoico.png" id="imgGal2" style="float:left;max-width: 100%; width: auto;height: auto;-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;box-sizing: border-box"/>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div data-role="navbar" data-iconpos="left">
+			<ul>
+				<li><a href="galeriesdirections.html" data-icon="navigation" id="diriddown" data-transition="slideup">Directions</a></li>
+				<li><a href="galeriesslideshow.html" data-icon="camera" id="ssiddown" data-transition="slideup">Slideshow</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+
+	</div><!-- /content -->
+    <div data-role="panel" data-position="left" data-position-fixed="true" data-display="overlay" id="helppanelartPlaceDetails">
+		<div id="helptext">
+		<br>
+			<p class="helptext">
+				Here you can access to all information provided by the gallery or the artist<br>
+				<br>
+				If provided you can call the gallery or the artist by taping the phone number
+				<img src="img/help/gallerydetailtel.png" class="responsiveimg"><br>
+				
+				If provided you can access the web site of the gallery or the artist by taping the url
+				<img src="img/help/gallerydetailurl.png" class="responsiveimg"><br>
+				
+				You can access the slideshow of the gallery or the artist by taping the "slideshow" button
+				<img src="img/help/gallerydetailslideshow.png" class="responsiveimg"><br>
+
+				If you want to see the directions to go to the gallery or the artist workshop, tap the "Directions" button
+				<img src="img/help/gallerydetaildirections.png" class="responsiveimg"><br>
+				
+				If you like a gallery or an artist and want to share it, tap the "Share" button, and then the media you want to use
+				<img src="img/help/gallerydetailshare.png" class="responsiveimg"><br>
+				
+				
+			</p>
+			
+		</div>
+		
+    </div><!-- /panel -->	</div><!-- /page -->
+</body>
+</html>
